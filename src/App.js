@@ -69,7 +69,7 @@ const App = ({ match }) => {
   };
 
   return (
-    <FacebookProvider appId="874162999784545">
+    <FacebookProvider appId="874162999784545" language="bg_BG">
       <nav className="flex items-center justify-between flex-wrap bg-indigo-500 p-16">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <svg
@@ -88,10 +88,10 @@ const App = ({ match }) => {
         <Helmet>
           <meta
             property="og:url"
-            content="https://www.your-domain.com/your-page.html"
+            content={`https://kasmetche.netlify.app/${match.params.id}/${match.params.id2}`}
           />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="" />
+          <meta property="og:title" content={Selected.title} />
           <meta property="og:description" content=" " />
           <meta
             property="og:image"
@@ -109,7 +109,9 @@ const App = ({ match }) => {
               src={`https://grafix.herokuapp.com/shot/${data.shid}.png`}
               alt="Sunset in the mountains"
             />
-            <Share href="http://www.facebook.com">
+            <Share
+              href={`https://kasmetche.netlify.app/${Selected.id}/${data.shid}`}
+            >
               {({ handleClick, loading }) => (
                 <button type="button" disabled={loading} onClick={handleClick}>
                   Share
