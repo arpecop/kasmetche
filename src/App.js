@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FacebookProvider, LoginButton } from "react-facebook";
+import { FacebookProvider, LoginButton, Share } from "react-facebook";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 const Apps = [
@@ -95,6 +95,13 @@ const App = ({ match }) => {
               src={`https://grafix.herokuapp.com/shot/${data.shid}.png`}
               alt="Sunset in the mountains"
             />
+            <Share href="http://www.facebook.com">
+              {({ handleClick, loading }) => (
+                <button type="button" disabled={loading} onClick={handleClick}>
+                  Share
+                </button>
+              )}
+            </Share>
           </div>
         )}
         {match && match.params.id && !data.shid && (
