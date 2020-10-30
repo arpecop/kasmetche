@@ -109,15 +109,20 @@ const App = ({ match }) => {
               src={`https://grafix.herokuapp.com/shot/${data.shid}.png`}
               alt="Sunset in the mountains"
             />
-            <Share
-              href={`https://kasmetche.netlify.app/${Selected.id}/${data.shid}`}
-            >
-              {({ handleClick, loading }) => (
-                <button type="button" disabled={loading} onClick={handleClick}>
-                  Share
-                </button>
-              )}
-            </Share>
+            <div className="flex justify-center">
+              <Share
+                href={`https://kasmetche.netlify.app/${Selected.id}/${data.shid}`}
+              >
+                {() => (
+                  <button
+                    type="button"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-4"
+                  >
+                    Сподели
+                  </button>
+                )}
+              </Share>
+            </div>
           </div>
         )}
         {match && match.params.id && !data.shid && (
@@ -145,7 +150,7 @@ const App = ({ match }) => {
         )}
         {Apps.map((app) => (
           <a className="md:flex" key={app.id} href={"/" + app.id}>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-3">
               <AppDetails app={app} />
             </div>
           </a>
