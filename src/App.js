@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FacebookProvider, LoginButton, Share } from "react-facebook";
+import { FacebookProvider, LoginButton, ShareButton } from "react-facebook";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 const Apps = [
@@ -110,18 +110,12 @@ const App = ({ match }) => {
               alt="Sunset in the mountains"
             />
             <div className="flex justify-center">
-              <Share
+              <ShareButton
                 href={`https://kasmetche.netlify.app/${Selected.id}/${data.shid}`}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-4"
               >
-                {() => (
-                  <button
-                    type="button"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-4"
-                  >
-                    Сподели
-                  </button>
-                )}
-              </Share>
+                Сподели
+              </ShareButton>
             </div>
           </div>
         )}
