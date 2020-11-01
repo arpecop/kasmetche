@@ -8,24 +8,22 @@ import Main from "./App";
 
 const App = () => (
   <Router>
-    <div>
-      <Route path="/" exact component={() => <Main isIndex />} />
-      <Route
-        path="/:id/"
-        exact
-        render={(props) => <Main match={props.match} isIndex={false} />}
-      />
-      <Route
-        path="/:id/:id2"
-        exact
-        render={(props) => <Main match={props.match} isIndex={false} />}
-      />
-      <Route
-        path="/:id/:id2/:start_key"
-        exact
-        render={(props) => <Main match={props.match} isIndex={false} />}
-      />
-    </div>
+    <Route path="/" exact component={() => <Main isIndex />} />
+    <Route
+      path="/:id/"
+      exact
+      render={(props) => <Main match={props.match} isIndex={false} />}
+    />
+    <Route
+      path="/:id/:id2"
+      exact
+      render={(props) => <Main match={props.match} isIndex={false} />}
+    />
+    <Route
+      path="/:id/:id2/:start_key"
+      exact
+      render={(props) => <Main match={props.match} isIndex={false} />}
+    />
   </Router>
 );
 ReactDOM.render(<App />, document.getElementById("root"));
